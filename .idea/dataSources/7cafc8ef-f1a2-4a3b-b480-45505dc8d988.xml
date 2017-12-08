@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="Django default">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="djtest">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="crazyit"/>
+    <schema id="4" parent="1" name="crm_base"/>
+    <schema id="5" parent="1" name="crm_tech"/>
+    <schema id="6" parent="1" name="docsure"/>
+    <schema id="7" parent="1" name="hrsystem"/>
+    <schema id="8" parent="1" name="imisure"/>
+    <schema id="9" parent="1" name="imooc"/>
+    <schema id="10" parent="1" name="information_schema"/>
+    <schema id="11" parent="1" name="mysql"/>
+    <schema id="12" parent="1" name="my_db"/>
+    <schema id="13" parent="1" name="obstatus"/>
+    <schema id="14" parent="1" name="onlyoffice"/>
+    <schema id="15" parent="1" name="performance_schema"/>
+    <schema id="16" parent="1" name="shoppingmall"/>
+    <schema id="17" parent="1" name="shop_store"/>
+    <schema id="18" parent="1" name="sys"/>
+    <schema id="19" parent="1" name="websure"/>
+    <schema id="20" parent="1" name="websure_0.3"/>
+    <schema id="21" parent="1" name="websure_1.0"/>
+    <schema id="22" parent="1" name="websure_3"/>
+  </database-model>
+</dataSource>
