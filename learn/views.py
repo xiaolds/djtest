@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
-from learn.models import Question, User
+from learn.models import Question
 
 
 def index(request):
@@ -23,14 +23,12 @@ def vote(request, question_id):
     return HttpResponse("You're voting on question %s." % question_id)
 
 
-def users(request):
-    # get all users
-    # all_users = User.objects.order_by('user_register_time')
-    # return '\n'.join([u.user_name for u in all_users])
-    return 'users'
-
-
-def single_user(request, user_id):
-    # user_detail = User.objects.get(id=user_id)
-    # return str(user_detail)
-    return 'single_user %s' % str(user_id)
+# def users(request):
+#     # get all users
+#     all_users = User.objects.order_by('user_register_time')
+#     return HttpResponse('\n'.join([u.user_name for u in all_users]))
+#
+#
+# def single_user(request, user_id):
+#     user_detail = User.objects.get(id=user_id)
+#     return HttpResponse(str(user_detail))
