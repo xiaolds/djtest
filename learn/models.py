@@ -1,7 +1,7 @@
 
 from django.db import models
 
-
+"""
 class User(models.Model):
     # user_id = models.IntegerField(primary_key=True,auto_created=True)
     user_name = models.CharField(max_length=200)
@@ -18,5 +18,15 @@ class User(models.Model):
 
     class Meta:
         ordering = ('user_register_time',)
+"""
+
+
+class File(models.Model):
+    file_name = models.CharField(max_length=200)
+
+    file_create_time = models.DateTimeField('Date file register')
+    file_update_time = models.DateTimeField('Date file update')
+    owner = models.ForeignKey('auth.User', related_name='files', on_delete=models.CASCADE)
+
 
 

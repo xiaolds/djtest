@@ -1,13 +1,33 @@
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
+from django.contrib.auth.models import User
+from rest_framework import generics, permissions
 
-from learn.models import User
+from learn.permissions import IsOwnerOrReadOnly
 from learn.serializers import UserSerializer
 
 
-@api_view(['GET'])
-def user_list(request, format=None):
-    if request.method == 'GET':
-        users = User.objects.all()
-        s_users = UserSerializer(users, many=True)
-        return Response(s_users.data)
+class UserDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+
+class UserList(generics.ListCreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+
+class FileList(generics.ListCreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,
+                          IsOwnerOrReadOnly,)
+
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
+
+
+class FileDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,
+                          IsOwnerOrReadOnly,)
+
