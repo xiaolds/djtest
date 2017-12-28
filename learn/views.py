@@ -59,11 +59,11 @@ class FileUploadView(views.APIView):
         try:
             destination = open('D:/test/' + up_file.name, 'wb+')
             for chunk in up_file.chunks():
-                print(chunk)
+                # print(chunk)
                 destination.write(chunk)
             destination.close()
             # 保存成功后入库
-            t = datetime.now(tz=pytz.UTC)
+            t = datetime.now(tz=pytz.timezone('Asia/Shanghai'))
             file = File(owner=request.user, file_name=up_file.name, file_create_time=t, file_update_time=t)
             # old_file = File.objects.get(file_name=up_file.name)
             file_count = File.objects.filter(file_name=up_file.name).count()
