@@ -28,5 +28,13 @@ class File(models.Model):
     file_update_time = models.DateTimeField('Date file update')
     owner = models.ForeignKey('auth.User', related_name='files', on_delete=models.CASCADE)
 
+    class Meta:
+        ordering = ('file_create_time',)
+
+    def __str__(self):
+        return self.file_name
+
+    def __unicode__(self):
+        return '%d: %s' % (self.id, self.file_name)
 
 
